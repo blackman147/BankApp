@@ -42,7 +42,7 @@ public class LoanEngineByCustomerAgeTest {
         johnLoanRequest.setTenor (25);
         johnLoanRequest.setTypeOfLoan (LoanType.SME);
         Optional<Customer> optionalCustomer = CustomerRepo.getCustomers ().values ().stream ().findFirst ();
-        john = (optionalCustomer.isPresent ()) ? optionalCustomer.get () : null;
+        john = optionalCustomer.orElse(null);
         assertNotNull (john);
     }
 
