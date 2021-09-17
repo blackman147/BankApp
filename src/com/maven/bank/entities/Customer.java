@@ -91,4 +91,9 @@ public class Customer {
     public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
+
+    @Override
+    public String toString() {
+        return firstName + " " + surname;
+    }
 }

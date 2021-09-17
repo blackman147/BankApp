@@ -176,21 +176,6 @@ class LoanEngineByRelationshipLengthTest {
         }
     }
 
-    @Test
-    void calculateAmountAutoApprovedForFutureRelationshipStartDate(){
-        try{
-            Account johnSavingsAccount = accountService.findAccount (1000110001);
-            assertEquals (BigDecimal.valueOf (450000), johnSavingsAccount.getBalance ());
-            Account johnCurrentAccount = accountService.findAccount (1000110002);
-            assertEquals (BigDecimal.valueOf (50000000), johnCurrentAccount.getBalance ());
-            johnCurrentAccount.setStartDate (johnCurrentAccount.getStartDate ().plusMonths(3));
-            johnCurrentAccount.setAccountLoanRequest (johnLoanRequest);
-            BigDecimal amountApproved = loanEngine.calculateAmountAutoApproved (john, johnCurrentAccount);
-            assertEquals (5045000, amountApproved.intValue ());
-        } catch (MavenBankException ex) {
-            ex.printStackTrace ( );
-        }
-    }
 
     @Test
     void calculateAmountAutoApprovedWithNegativeMonths(){

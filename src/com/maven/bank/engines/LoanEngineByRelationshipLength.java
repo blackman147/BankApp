@@ -22,7 +22,7 @@ public class LoanEngineByRelationshipLength implements LoanEngine{
         BigDecimal loanAmountApprovedAutomatically;
         BigDecimal totalCustomerBalance = getTotalCustomerBalance(customer);
         BigDecimal totalBalancePercentage;
-        int lengthOfRelationship = Long.valueOf(period).intValue();
+        long lengthOfRelationship = Long.valueOf(period).longValue();
         totalBalancePercentage = getRelationshipPercentage(lengthOfRelationship);
         loanAmountApprovedAutomatically = totalCustomerBalance.multiply(totalBalancePercentage);
 
@@ -45,10 +45,11 @@ public class LoanEngineByRelationshipLength implements LoanEngine{
 //        }
     }
 
-    private BigDecimal getRelationshipPercentage(int lengthOfRelationship){
+    private BigDecimal getRelationshipPercentage(long lengthOfRelationship){
+        int relationshipLength = Long.valueOf(lengthOfRelationship).intValue();
         BigDecimal totalBalancePercentage;
 
-        switch (lengthOfRelationship){
+        switch (relationshipLength){
             case 1: case 2:
                 return BigDecimal.ZERO;
             case 3: case 4: case 5:

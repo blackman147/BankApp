@@ -16,7 +16,7 @@ public interface LoanEngine {
         }
         LocalDateTime today = LocalDateTime.now();
 
-        if (today.isAfter(customer.getRelationshipStartDate())){
+        if (today.isBefore(customer.getRelationshipStartDate())){
             throw new MavenBankLoanException("Customer relationship start date is after today");
         }
         validateLoanRequest (accountSeekingLoan);
@@ -38,5 +38,7 @@ public interface LoanEngine {
         }
         return totalCustomerBalance;
     }
+
+
 
 }
