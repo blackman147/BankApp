@@ -1,6 +1,6 @@
 package com.maven.bank.entities;
 
-import com.maven.bank.datastore.BankTransactionType;
+import com.maven.bank.enums.BankTransactionType;
 import com.maven.bank.services.BankService;
 
 import java.math.BigDecimal;

@@ -1,8 +1,8 @@
 package com.maven.bank.engines;
 
 import com.maven.bank.datastore.CustomerRepo;
-import com.maven.bank.datastore.LoanRequestStatus;
-import com.maven.bank.datastore.LoanType;
+import com.maven.bank.enums.LoanRequestStatus;
+import com.maven.bank.enums.LoanType;
 import com.maven.bank.entities.Account;
 import com.maven.bank.entities.Customer;
 import com.maven.bank.entities.LoanRequest;

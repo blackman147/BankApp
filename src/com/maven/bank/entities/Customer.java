@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 public class Customer {
     private long bvn;
@@ -15,6 +17,7 @@ public class Customer {
     private LocalDateTime relationshipStartDate;
     private List<Account> accounts = new ArrayList<> (  );
     private LocalDate dateOfBirth;
+    private SortedSet<Employment> employmentHistory = new TreeSet<>();
 
     public String getEmail() {
         return email;
@@ -90,6 +93,14 @@ public class Customer {
 
     public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public SortedSet<Employment> getEmploymentHistory() {
+        return employmentHistory;
+    }
+
+    public void setEmploymentHistory(SortedSet<Employment> employmentHistory) {
+        this.employmentHistory = employmentHistory;
     }
 
     @Override

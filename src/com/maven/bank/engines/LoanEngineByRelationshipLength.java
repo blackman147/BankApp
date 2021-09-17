@@ -22,8 +22,8 @@ public class LoanEngineByRelationshipLength implements LoanEngine{
         BigDecimal loanAmountApprovedAutomatically;
         BigDecimal totalCustomerBalance = getTotalCustomerBalance(customer);
         BigDecimal totalBalancePercentage;
-        long lengthOfRelationship = Long.valueOf(period).longValue();
-        totalBalancePercentage = getRelationshipPercentage(lengthOfRelationship);
+        long lengthOfRelationship = period;
+        totalBalancePercentage = getLoanPercentage(lengthOfRelationship);
         loanAmountApprovedAutomatically = totalCustomerBalance.multiply(totalBalancePercentage);
 
         return loanAmountApprovedAutomatically;
@@ -45,7 +45,27 @@ public class LoanEngineByRelationshipLength implements LoanEngine{
 //        }
     }
 
-    private BigDecimal getRelationshipPercentage(long lengthOfRelationship){
+
+
+    @Override
+    public void validateLoanRequest(Customer customer, Account accountSeekingLoan) throws MavenBankLoanException {
+        LoanEngine.super.validateLoanRequest(customer, accountSeekingLoan);
+    }
+
+    @Override
+    public void validateLoanRequest(Account accountSeekingLoan) throws MavenBankLoanException {
+        LoanEngine.super.validateLoanRequest(accountSeekingLoan);
+    }
+
+    @Override
+    public BigDecimal getTotalCustomerBalance(Customer customer) {
+        return LoanEngine.super.getTotalCustomerBalance(customer);
+    }
+
+
+
+    @Override
+    public BigDecimal getLoanPercentage(long lengthOfRelationship){
         int relationshipLength = Long.valueOf(lengthOfRelationship).intValue();
         BigDecimal totalBalancePercentage;
 

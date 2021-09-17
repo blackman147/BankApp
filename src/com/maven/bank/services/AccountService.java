@@ -1,14 +1,11 @@
 package com.maven.bank.services;
 
-import com.maven.bank.datastore.BankTransactionType;
-import com.maven.bank.datastore.LoanRequestStatus;
+import com.maven.bank.enums.LoanRequestStatus;
 import com.maven.bank.entities.Account;
 import com.maven.bank.entities.BankTransaction;
 import com.maven.bank.entities.Customer;
-import com.maven.bank.datastore.AccountType;
+import com.maven.bank.enums.AccountType;
 import com.maven.bank.exceptions.MavenBankException;
-import com.maven.bank.exceptions.MavenBankInsufficientFundsException;
-import com.maven.bank.exceptions.MavenBankTransactionException;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

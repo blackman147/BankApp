@@ -1,6 +1,5 @@
 package com.maven.bank.engines;
 
-import com.maven.bank.datastore.LoanRequestStatus;
 import com.maven.bank.entities.Account;
 import com.maven.bank.entities.Customer;
 import com.maven.bank.exceptions.MavenBankLoanException;
@@ -23,5 +22,25 @@ public class LoanEngineByBalance implements LoanEngine {
            loanAmountApprovedAutomatically = totalCustomerBalance.multiply (totalBalancePercentage);
         }
         return loanAmountApprovedAutomatically;
+    }
+
+    @Override
+    public BigDecimal getLoanPercentage(long determinant) {
+        return null;
+    }
+
+    @Override
+    public void validateLoanRequest(Customer customer, Account accountSeekingLoan) throws MavenBankLoanException {
+        LoanEngine.super.validateLoanRequest(customer, accountSeekingLoan);
+    }
+
+    @Override
+    public void validateLoanRequest(Account accountSeekingLoan) throws MavenBankLoanException {
+        LoanEngine.super.validateLoanRequest(accountSeekingLoan);
+    }
+
+    @Override
+    public BigDecimal getTotalCustomerBalance(Customer customer) {
+        return LoanEngine.super.getTotalCustomerBalance(customer);
     }
 }

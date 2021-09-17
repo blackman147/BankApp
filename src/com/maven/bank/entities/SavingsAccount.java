@@ -1,7 +1,5 @@
 package com.maven.bank.entities;
 
-import com.maven.bank.datastore.AccountType;
-
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 

@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 
 public interface LoanEngine {
     BigDecimal calculateAmountAutoApproved(Customer customer, Account accountSeekingLoan) throws MavenBankLoanException;
+    public BigDecimal getLoanPercentage(long determinant);
 
     default void validateLoanRequest(Customer customer, Account accountSeekingLoan) throws MavenBankLoanException {
         if (customer == null){

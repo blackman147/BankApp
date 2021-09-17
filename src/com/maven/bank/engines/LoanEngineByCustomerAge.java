@@ -21,6 +21,26 @@ public class LoanEngineByCustomerAge implements LoanEngine{
         return loanAmountApprovedAutomatically;
     }
 
+    @Override
+    public BigDecimal getLoanPercentage(long determinant) {
+        return null;
+    }
+
+    @Override
+    public void validateLoanRequest(Customer customer, Account accountSeekingLoan) throws MavenBankLoanException {
+        LoanEngine.super.validateLoanRequest(customer, accountSeekingLoan);
+    }
+
+    @Override
+    public void validateLoanRequest(Account accountSeekingLoan) throws MavenBankLoanException {
+        LoanEngine.super.validateLoanRequest(accountSeekingLoan);
+    }
+
+    @Override
+    public BigDecimal getTotalCustomerBalance(Customer customer) {
+        return LoanEngine.super.getTotalCustomerBalance(customer);
+    }
+
     private BigDecimal getAgePercentage(long age){
         BigDecimal agePercentage  = BigDecimal.ZERO;
 
